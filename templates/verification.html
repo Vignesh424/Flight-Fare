@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Verification </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+     <link rel="stylesheet" href="{{url_for('static',filename='css/nunito-font.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+
+</head>
+<body class="form-v6">
+    <div class="page-content">
+		<div class="form-v6-content">
+               <div class="form-left">
+				<img src="{{url_for('static',filename='images/email.jpg')}}" alt="verify-form"
+                width="457" height="475">
+			</div>
+<form class="form-detail" action="/validate" method="post">
+    <h2><strong>Email Verification Form</strong></h2>
+     <h3>One time password has been sent to the mail id. please check </h3>
+     {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{category}}">{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+     <div class="form-row">
+                    <input type="number" name="otp" id="otp" class="input-text"
+                           placeholder="Enter OTP" required>
+				</div>
+    <div class="form-row">
+       <p>
+           <input type="submit" value="SUBMIT CODE" style="width:325px;" class = "btn-success btn btn-primary">
+       </p>
+        <p>
+        <a href="{{url_for('index')}}" style="width:325px;" class="btn btn-primary">BACK TO HOME</a>
+        </p>
+
+                    </div>
+                </form>
+		</div>
+	</div>
+</body>
+</html>

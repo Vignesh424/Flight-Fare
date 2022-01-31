@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body {
+    background-color: #e1f4f3;
+    text-align: center;
+    background-image: url(https://images.unsplash.com/photo-1597913201834-1ef10d867d92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: 1710px 800px;
+}
+
+.navbar {
+    background-color:rgb(34, 89, 121);
+    align:left;
+    font-family:Roboto;
+    font-weight:bold;
+}
+
+a {
+    color: #f1f9f9;
+}
+
+a:hover {
+    color: #000000;
+  }
+
+
+
+.container-fluid{
+    padding: 10px;
+}
+.row{
+    flex-wrap: nowrap;
+    margin-left: -70px;
+}
+.date{
+    block-size: 20px;
+    margin-left: -5px;
+    width: 190px;
+
+}
+.date1{
+    block-size: 20px;
+    margin-left: -15px;
+    width: 190px;
+}
+.form{
+    display: inline-block;
+}
+
+.card-title{
+    display: inline-block;
+    align-content: center;
+    font-color:#ffffff;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+}
+.card{
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.prediction_text{
+    font-family: Roboto;
+}
+.btn-secondary{
+    background-color: #5cb85c;
+    font-weight : bold;
+    font-size: 20px;
+}
