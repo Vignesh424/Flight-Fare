@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+Reuters/__init__.py
+Reuters.egg-info/PKG-INFO
+Reuters.egg-info/SOURCES.txt
+Reuters.egg-info/dependency_links.txt
+Reuters.egg-info/requires.txt
+Reuters.egg-info/top_level.txt

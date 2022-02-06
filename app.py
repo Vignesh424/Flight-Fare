@@ -9,7 +9,8 @@ import json
 import pickle
 import pandas as pd
 import sqlite3
-
+import nltk
+nltk.data.path.append('C:\\Users\\DELL\\PycharmProjects\\FlaskSqlite\\Flask\\FlaskSQLite\\FlightFare\\nltk_data\\')
 app = Flask(__name__)
 model = pickle.load(open("flight_rf.pkl", "rb"))
 app.secret_key = os.urandom(24)
