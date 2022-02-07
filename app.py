@@ -436,7 +436,7 @@ def logout():
 @cross_origin()
 def api_response():
     if request.method == 'POST':
-        return jsonify(**request.json)
+        return jsonify(**config.json)
 
 
 if __name__ == '__main__':
