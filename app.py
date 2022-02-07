@@ -1,5 +1,5 @@
 import random
-from flask import Flask, flash, render_template, request, session, redirect, url_for
+from flask import Flask, flash, render_template, request, session, redirect, url_for,jsonify
 from flask_cors import cross_origin
 from flask_mail import *
 import sklearn
@@ -9,8 +9,6 @@ import json
 import pickle
 import pandas as pd
 import sqlite3
-'''import nltk
-nltk.data.path.append('C:\\Users\DELL\\AppData\\Roaming\\nltk_data\\')'''
 app = Flask(__name__)
 model = pickle.load(open("flight_rf.pkl", "rb"))
 app.secret_key = os.urandom(24)
@@ -434,6 +432,13 @@ def logout():
     session.clear()
     return redirect(url_for("index"))
 
+@app.route('/api_response')
+@cross_origin()
+def api_response():
+    if request.method == 'POST':
+        return jsonify(**request.json)
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    app.run()
