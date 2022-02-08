@@ -16,7 +16,7 @@
 				<img src="{{url_for('static',filename='images/plane.jpg')}}" alt="login-form"
                  width="457" height="475">
 			</div>
-            <form class="form-detail" action="/verification" method="post">
+            <form class="form-detail" action="/login" method="post">
 				<h2><strong>Login Form</strong></h2>
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
