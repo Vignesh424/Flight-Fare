@@ -1,7 +1,5 @@
-import random
 from flask import Flask, flash, render_template, request, session, redirect, url_for,jsonify
 from flask_cors import cross_origin
-from flask_mail import *
 import sklearn
 import os
 import logging
