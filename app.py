@@ -12,16 +12,6 @@ import sqlite3
 app = Flask(__name__)
 model = pickle.load(open("flight_rf.pkl", "rb"))
 app.secret_key = os.urandom(24)
-with open('config.json', 'r') as f:
-    params = json.load(f)['params']
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = params['user']
-app.config['MAIL_PASSWORD'] = params['password']
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
-otp = random.randrange(000000, 999999)
 con = sqlite3.connect('users.db')
 con.execute('create table if not exists customer(pid integer primary key,name text,email text, password text)')
 con.close()
@@ -69,32 +59,10 @@ def login():
         if data:
             session["email"] = data["email"]
             session["password"] = data["password"]
-            return redirect("verification")
+            return redirect("predict")
         else:
             flash("Username and Password Mismatch", "danger")
     return render_template('login.html')
-
-
-@app.route('/verification', methods=['GET', 'POST'])
-@cross_origin()
-def verification():
-    gmail = request.form['email']
-    msg = Message('OTP', sender='vigneshsuresh0404@gmail.com', recipients=[gmail])
-    msg.body = str(otp)
-    mail.send(msg)
-    return render_template('verification.html')
-
-
-@app.route('/validate', methods=['GET', 'POST'])
-@cross_origin()
-def validate():
-    user_otp = request.form['otp']
-    if otp == int(user_otp):
-        flash('User validated successfully')
-        return redirect(url_for('predict'))
-    else:
-        flash("Error in Verification , Try Again", "danger")
-    return render_template('verification.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -416,13 +384,13 @@ def predict():
         ]])
         if date_dep == date_arr:
             logging.warning('date time of departure and date time of arrival are same')
-            return render_template('predict.html', prediction_text="Your Flight price is ₹. 0")
+            return render_template('predict.html', prediction_text="Your Flight price is ₹: 0")
         else:
             logging.info('Successful Prediction')
             output = round(prediction[0], 2)
             logging.info('Output Displayed')
 
-        return render_template('predict.html', prediction_text="Your Flight price is ₹. {}".format(output))
+        return render_template('predict.html', prediction_text="Your Flight price is ₹: {}".format(output))
     return render_template('predict.html')
 
 
@@ -432,11 +400,7 @@ def logout():
     session.clear()
     return redirect(url_for("index"))
 
-@app.route('/api_response')
-@cross_origin()
-def api_response():
-    if request.method == 'POST':
-        return jsonify(**config.json)
+
 
 
 if __name__ == '__main__':
