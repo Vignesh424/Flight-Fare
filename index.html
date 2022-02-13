@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+     <link rel="stylesheet" href="{{url_for('static',filename='css/nunito-font.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body class="form-v6">
+    <div class="page-content">
+		<div class="form-v6-content">
+               <div class="form-left">
+				<img src="{{url_for('static',filename='images/flight4.jpg')}}" alt="register-form"
+                width="457" height="475">
+                  </div>
+            <form class="form-detail" action="/register" method="post">
+				<h2><strong>Registration Form</strong></h2>
+                <div class="form-row">
+					<input type="text" name="name" id="name" class="input-text"
+                           placeholder="Enter Name" required maxlength="30">
+				</div>
+				<div class="form-row">
+					<input type="email" name="email" id="email" class="input-text"
+                           placeholder="Email Address" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+				</div>
+				<div class="form-row">
+					<input type="password" name="password" id="password" class="input-text"
+                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" placeholder="Password" required>
+				</div>
+                <br>
+                    <div class="form-row">
+                       <P>
+                            <input type="submit" value="REGISTER" style="width:325px;" class = "btn-success btn btn-primary">
+                       </P>
+                        <P>
+                            <a href="{{url_for('login')}}" style="width:325px;" class="btn btn-primary">LOGIN</a>
+                        </P>
+
+                    </div>
+                </form>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("form").attr("autocomplete","off");
+    });
+</script>

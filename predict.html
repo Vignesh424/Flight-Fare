@@ -1,0 +1,199 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Fare</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/stylesflight.css">
+
+
+</head>
+
+<body>
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="https://www.freeiconspng.com/thumbs/airplane-icon-png/description-white-plane-icon-2-27.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                &nbsp;<a class="navbar-brand" href="/predict">FLIGHT FARE PREDICTION APP</a>
+            </div>
+            <DIV>
+                <img src="{{url_for('static',filename='images/person.png')}}" alt="login-form"
+                 width="30" height="30">
+            &nbsp;<a href="{{url_for('logout')}}" style="width:325px;">LOGOUT</a>
+            </DIV>
+        </div>
+    </nav>
+
+    <br><br><br><br><br><br>
+
+
+    <div class="container">
+
+
+
+        <form class="form" action="/predict" method="post">
+
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">DEPARTURE </font></div>
+                        <!-- Departure -->
+                        <input class="date" type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">ARRIVAL</font></div>
+                        <!-- Arrival -->
+                        <input class="date1" type="datetime-local" name="Arrival_Time" id="Arrival_Time"
+                            required="required">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">FLYING FROM </font></div>
+                        <!-- Source -->
+                        <select name="Source" id="Source" required="required">
+                            <option value="Banglore">Bangalore</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Chennai">Chennai</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">FLYING TO </font></div>
+                        <!-- Destination -->
+                        <select name="Destination" id="Destination" required="required">
+                            <option value="Banglore">Bangalore</option>
+                            <option value="Cochin">Cochin</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Goa">Goa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">STOPS </font></div>
+                        <!-- Total stops -->
+                        <select name="stops" required="required">
+                            <option value="0">Non-Stop</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">CHOOSE AIRLINE</font></div>
+                        <!-- Airline -->
+                        <select name="Airline" id="Airline" required="required">
+                            <option value="Jet Airways">Jet Airways</option>
+                            <option value="IndiGo">IndiGo</option>
+                            <option value="Air India">Air India</option>
+                            <option value="Air India Alliance Air">Air India Alliance Air</option>
+                            <option value="SpiceJet">SpiceJet</option>
+                            <option value="Vistara">Vistara</option>
+                            <option value="Vistara Premium Economy">Vistara Premium Economy</option>
+                            <option value="Air Asia">Air Asia</option>
+                            <option value="GoAir">GoAir</option>
+                             <option value="Kingfisher">Kingfisher</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+             <div class="row">
+            <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">ADULTS (18+)</font></div>
+                        <!-- Adults -->
+                        <select class="form-control" name="Adults" id="Adults" required="required" placeholder="Adults">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+						</select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">CHILDREN (2-11)</font></div>
+                         <!-- Children -->
+                        <select class="form-control" name="Children" id="Children" required="required" placeholder="Children">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+											</select>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">INFANTS IN SEAT</font></div>
+                         <!-- Infants -->
+			<select class="form-control" name="Infants" id="Infants" required="required" placeholder="Infants">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+											</select>
+                        </div></div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title"><font color="white">JOURNEY TYPE</font> </div>
+                         <!-- Journey -->
+			<select class="form-control" name="Journey" id="Journey" required="required" placeholder="Journey">
+												<option>Roundtrip</option>
+												<option>OneWay</option>
+											</select>
+            </div>
+                </div>
+             </div>
+            <br>
+            <br>
+            <br>
+            <!-- Submit -->
+            <p>
+            <input type="submit" value="SHOW FLIGHTS" class="btn btn-secondary">
+            </p>
+        </form>
+
+        <br>
+        <br><br><br><br><br>
+        <h3 class="prediction_text"><FONT COLOR="WHITE"> {{ prediction_text }}</FONT></h3>
+        <br>
+        <br>
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
