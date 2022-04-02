@@ -209,7 +209,7 @@ def predict():
             GoAir = 0
             IndiGo = 0
             Jet_Airways = 0
-            Kingfisher = 1
+            Kingfisher = 0
             SpiceJet = 0
             Vistara = 0
             Vistara_Premium_economy = 0
